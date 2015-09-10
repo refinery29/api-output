@@ -1,0 +1,37 @@
+language: php
+
+sudo: false
+
+env:
+  global:
+    - secure: "WoaGmMoIspl8a9c22mxUwW9inXYlScWWL5L77BpRrScjheNxnSwE6b2naFgUm2RK0USuF4PRfSk3AgKnraEMYK0yuwk8v7QF6sF4SwBnhnT+KfGEVc0axzmJPtN+ouHOC6zyE4nSx/MNav15o+MmDJr+SrZf3zpYhjfCj60xDHeHRIVf+DFiwruEkHZ57g0UCZeytNLVu4/Dk5c74v5x2y13MRCOnltGCUdcVuLz4ZifR7FmFzs25yaYm9PXH/2u07XW7FPQMvIkXSe8zdLsgzjH1ZT/BhebN2Aurh9uTUgb10oYyDrhGzbLUZm8oA60eNbtcxlPu/5CK6qBH2YwuNzpDnUcNqRI8WKSrga1l+oUuwBrV+6ZzUivb2QxeN7YpM5K4d0yp4596892a+R47BFdRvCq6Bfe3b/5ts8quz7vqPtYxDmL0bxkLhKo0pS1iEj2Z/uaTpgAVxYZTmA78EL+KxPa1DzXdS6bYkV0XQeEZFtqRURDYq3SFB0qb7pPS5cTNb8nv3o1Xfn5VHOMwxjCvgL/Fbly8CmEzEHW8Kp7zLYQT2AxGukfYUDDRXN25idWZXV61Yy570z8Mi5V3g5rO5mxzfs/tueM/QVEJjt4PVzHvmDn5r1XjpSXhRQu50tVa7zepQu0bWaJncd4zpV9qdtJPTVsqDvaNDTLd+Y="
+    - secure: "D6slyX7VQBgSnWRvJoUNVoeR1uXcL+YbiT/W6oh2h6mIY4B2GV1hx9tFss07+4a0IN7XpIK/iGA7vpp3RErCNAVkBLb3ty5FlQ0kzqtg5m8NVPTED5inT/DkKboTpxYbtmIwdcNce34dgTeUuffCQ/ZoMyTzbkUdj6zE/hKeexigpH8TBD4DszrOjqimeC7xlLASureyUKC58FGHdZTehaHFf5bLpfKR+KVXkqpUk+P7RFd8pcLDoLG9yfPdzRb5ZSXmleLpAqZ/QrHUUyIWPxIrL9RjUoC2U4Ev9fNa5v2CWzLJ54AcorMPTWNnAiNYenqremv6pVgh8U6K4FLkYk35bohNWR9kYeO7l7eXwHIw9NC1pvVL2vSVMysjBYj2sgbJw4U4F7QykUzSK4+bZuluDyrrTgWmSyAVEyxDB/BO1QTYSNvKEzO5g03ST9wlsIQHhkR3YMT2xpetm/dzIJVWwARvGrykZOeIRr2xkVPcW84XYbmMF/rXRo9+ROrkd2niaKd3STzOT0Ftu8K4afzoo8WkH7uv/C4nIj2mYSzsTWVDXc6ruKSB+NL5oopNZzmKAmARK+4aINgKrfYtLEHgtVYfiawZqDpSve+vD7F9Rrp7e8afc/TSDOA+Mxpo/FAfeB3f2v4yI2Pd11Ffea/mzFg+f1pk24Y55TM+MT4="
+
+matrix:
+  include:
+    - php: 5.5
+    - php: 5.5
+      env: COLLECT_COVERAGE=true
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.php-cs-fixer
+
+before_install:
+  - composer self-update
+  - composer validate
+  - composer config github-oauth.github.com $GITHUB_TOKEN
+
+install:
+  - composer install --prefer-dist
+
+before_script:
+  - mkdir -p "$HOME/.php-cs-fixer"
+
+script:
+  - bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff --dry-run
+  - bin/phpspec run --format=dot
+
+after_script:
+  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" && "$COLLECT_COVERAGE" == "true" ]]; then bin/report-coverage; fi
