@@ -45,6 +45,6 @@ class Link implements HasSerializer
 
     public function getSerializer()
     {
-        return new Serializer();
+        return new Serializer($this);
     }
 }

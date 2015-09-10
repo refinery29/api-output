@@ -4,11 +4,14 @@ namespace Refinery29\ApiOutput\Resource\Error;
 
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
-use Refinery29\ApiOutput\Resource\Link\HasLinks;
+use Refinery29\ApiOutput\Serializer\Error\Error as Serializer;
 
 class Error implements HasSerializer
 {
-    use HasLinks;
+    /**
+     * @var LinkCollection
+     */
+    protected $links;
 
     /**
      * @var string A short description of the error.
@@ -90,8 +93,27 @@ class Error implements HasSerializer
         $this->detail = $detail;
     }
 
+    /**
+     * @return Serializer
+     */
     public function getSerializer()
     {
-        // TODO: Implement getSerializer() method.
+        return new Serializer($this);
+    }
+
+    /**
+     * @return array
+     */
+    public function getLinks()
+    {
+        return $this->links;
+    }
+
+    /**
+     * @param string $link
+     */
+    public function addLink($link)
+    {
+        $this->links->addLink($link);
     }
 }

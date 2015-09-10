@@ -3,9 +3,13 @@
 namespace Refinery29\ApiOutput\Serializer\Link;
 
 use Refinery29\ApiOutput\Resource\Link\LinkCollection as Input;
+use Refinery29\ApiOutput\Serializer\HasArrayComponent;
+use Refinery29\ApiOutput\Serializer\Serializer;
 
-class LinkCollection
+class LinkCollection implements Serializer
 {
+    use HasArrayComponent;
+
     protected $linkCollection;
 
     function __construct(Input $linkCollection)
@@ -13,29 +17,18 @@ class LinkCollection
         $this->linkCollection = $linkCollection;
     }
 
-    public function output()
+    public function getOutput()
     {
         if ($this->linkCollection->hasSubsets()) {
-            $output = $this->processInput($this->linkCollection->getSubsets());
+            $output = $this->processArray($this->linkCollection->getSubsets());
 
-            return json_encode(['links' => $output]);
+            return json_encode(['links' => $output], JSON_UNESCAPED_SLASHES);
         }
 
         if ($this->linkCollection->hasLinks()){
-            $output = $this->processInput($this->linkCollection->getLinks());
+            $output = $this->processArray($this->linkCollection->getLinks());
 
-            return json_encode(['links' => $output]);
+            return json_encode(['links' => $output], JSON_UNESCAPED_SLASHES);
         }
-    }
-
-    private function processInput(array $input)
-    {
-        $output = [];
-
-        foreach ($input as $subset){
-            $output[] = $subset->getSerializer()->output();
-        }
-
-        return $output;
     }
 }
