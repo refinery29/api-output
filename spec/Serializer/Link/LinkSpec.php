@@ -3,19 +3,18 @@
 namespace spec\Refinery29\ApiOutput\Serializer\Link;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Link\Link as Input;
 use Refinery29\ApiOutput\Serializer\Link\Link;
 
 class LinkSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $link = new Input('href', 'meta');
         $this->beConstructedWith($link);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(Link::class);
     }

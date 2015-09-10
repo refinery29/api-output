@@ -7,7 +7,7 @@ use Refinery29\ApiOutput\Serializer\Serializer;
 
 class Link implements Serializer
 {
-    function __construct(Input $link)
+    public function __construct(Input $link)
     {
         $this->link = $link;
     }
@@ -18,7 +18,7 @@ class Link implements Serializer
             return $this->buildLinkObject();
         }
 
-        return "{".$this->link->getHref()."}";
+        return '{' . $this->link->getHref() . '}';
     }
 
     private function buildLinkObject()
@@ -26,6 +26,7 @@ class Link implements Serializer
         $obj = new \stdClass();
         $obj->href = $this->link->getHref();
         $obj->meta = $this->link->getMeta();
+
         return json_encode($obj, JSON_UNESCAPED_SLASHES);
     }
 }

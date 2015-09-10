@@ -3,18 +3,17 @@
 namespace spec\Refinery29\ApiOutput\Resource\Link;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
-use Refinery29\ApiOutput\Serializer\Link\Link as Serializer;
 use Refinery29\ApiOutput\Resource\Link\Link;
+use Refinery29\ApiOutput\Serializer\Link\Link as Serializer;
 
 class LinkSpec extends ObjectBehavior
 {
-    function let()
+    public function let()
     {
         $this->beConstructedWith('http://yolo.com');
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(Link::class);
     }
@@ -24,14 +23,14 @@ class LinkSpec extends ObjectBehavior
         $this->getHref()->shouldReturn('http://yolo.com');
     }
 
-    function it_can_get_meta()
+    public function it_can_get_meta()
     {
         $this->beConstructedWith('http://yolo.com', 'something-meta');
 
         $this->getMeta()->shouldReturn('something-meta');
     }
 
-    function it_can_get_serializer()
+    public function it_can_get_serializer()
     {
         $this->getSerializer()->shouldHaveType(Serializer::class);
     }

@@ -3,7 +3,6 @@
 namespace spec\Refinery29\ApiOutput\Serializer\Link;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\Resource\Link\LinkSubset;
@@ -11,12 +10,12 @@ use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
 
 class LinkCollectionSpec extends ObjectBehavior
 {
-    function let(LinkCollection $input)
+    public function let(LinkCollection $input)
     {
         $this->beConstructedWith($input);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(Serializer::class);
     }
@@ -34,7 +33,6 @@ class LinkCollectionSpec extends ObjectBehavior
         $this->getOutput()->shouldReturn($output);
     }
 
-
     public function it_can_get_output_with_only_links()
     {
         $input = new LinkCollection();
@@ -48,7 +46,6 @@ class LinkCollectionSpec extends ObjectBehavior
         $this->getOutput()->shouldReturn($output);
     }
 
-
     public function it_outputs_subsets_when_both_links_and_subsets_are_present()
     {
         $input = new LinkCollection();
@@ -60,7 +57,6 @@ class LinkCollectionSpec extends ObjectBehavior
         $subset = new LinkSubset('resources');
         $subset->addLink(new Link('http', 'yolo'));
         $input->addSubset($subset);
-
 
         $output = '{"links":[{"resources":[{"href":"http","meta":"yolo"}]}]}';
         $this->getOutput()->shouldReturn($output);

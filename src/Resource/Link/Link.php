@@ -18,10 +18,10 @@ class Link implements HasSerializer
     protected $meta;
 
     /**
-     * @param string $href
+     * @param string      $href
      * @param string|null $meta
      */
-    function __construct($href, $meta = null)
+    public function __construct($href, $meta = null)
     {
         $this->href = $href;
         $this->meta = $meta;

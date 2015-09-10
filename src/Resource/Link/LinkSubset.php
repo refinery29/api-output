@@ -2,19 +2,19 @@
 
 namespace Refinery29\ApiOutput\Resource\Link;
 
-use Refinery29\ApiOutput\Serializer\Link\LinkSubset as Serializer;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
+use Refinery29\ApiOutput\Serializer\Link\LinkSubset as Serializer;
 
 class LinkSubset implements HasSerializer
 {
     use HasLinks;
 
     /**
-     * @var string $name
+     * @var string
      */
     protected $name;
 
-    function __construct($name)
+    public function __construct($name)
     {
         $this->name = $name;
     }

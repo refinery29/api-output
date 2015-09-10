@@ -3,18 +3,17 @@
 namespace spec\Refinery29\ApiOutput\Serializer\Link;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Link\LinkSubset as Input;
 use Refinery29\ApiOutput\Serializer\Link\LinkSubset;
 
 class LinkSubsetSpec extends ObjectBehavior
 {
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(LinkSubset::class);
     }
 
-    function let()
+    public function let()
     {
         $this->beConstructedWith(new Input('name'));
     }

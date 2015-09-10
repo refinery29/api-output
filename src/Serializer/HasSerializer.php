@@ -1,4 +1,6 @@
-<?php namespace Refinery29\ApiOutput\Serializer;
+<?php
+
+namespace Refinery29\ApiOutput\Serializer;
 
 interface HasSerializer
 {

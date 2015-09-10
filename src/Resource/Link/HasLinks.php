@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Refinery29\ApiOutput\Resource\Link;
-
 
 trait HasLinks
 {
@@ -30,6 +28,7 @@ trait HasLinks
     /**
      * @param Link $one
      * @param Link $two
+     *
      * @return bool
      */
     private function linksMatch(Link $one, Link $two)
@@ -40,6 +39,7 @@ trait HasLinks
 
     /**
      * @param Link $compared
+     *
      * @return bool
      */
     public function hasLink(Link $compared)

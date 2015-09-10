@@ -12,7 +12,7 @@ class LinkCollection implements HasSerializer
     /**
      * @var LinkSubset[]
      */
-    protected $subsets =[];
+    protected $subsets = [];
 
     /**
      * @param LinkSubset $subset

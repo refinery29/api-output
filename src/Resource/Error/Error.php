@@ -3,8 +3,8 @@
 namespace Refinery29\ApiOutput\Resource\Error;
 
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
-use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Error\Error as Serializer;
+use Refinery29\ApiOutput\Serializer\HasSerializer;
 
 class Error implements HasSerializer
 {

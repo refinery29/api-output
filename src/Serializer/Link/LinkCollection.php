@@ -12,7 +12,7 @@ class LinkCollection implements Serializer
 
     protected $linkCollection;
 
-    function __construct(Input $linkCollection)
+    public function __construct(Input $linkCollection)
     {
         $this->linkCollection = $linkCollection;
     }
@@ -25,7 +25,7 @@ class LinkCollection implements Serializer
             return json_encode(['links' => $output], JSON_UNESCAPED_SLASHES);
         }
 
-        if ($this->linkCollection->hasLinks()){
+        if ($this->linkCollection->hasLinks()) {
             $output = $this->processArray($this->linkCollection->getLinks());
 
             return json_encode(['links' => $output], JSON_UNESCAPED_SLASHES);

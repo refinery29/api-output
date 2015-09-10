@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5ca781f53f767f6e24bfbf6005d89137",
+    "hash": "ee7c37190c9707b13d200a0c335ca5d5",
     "packages": [],
     "packages-dev": [
         {
@@ -121,16 +121,16 @@
         },
         {
             "name": "fabpot/php-cs-fixer",
-            "version": "v1.10",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",
-                "reference": "8e21b4fb32c4618a425817d9f0daf3d57a9808d1"
+                "reference": "6f5441e9879880e23765270ec7466ef952eeb839"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/8e21b4fb32c4618a425817d9f0daf3d57a9808d1",
-                "reference": "8e21b4fb32c4618a425817d9f0daf3d57a9808d1",
+                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/6f5441e9879880e23765270ec7466ef952eeb839",
+                "reference": "6f5441e9879880e23765270ec7466ef952eeb839",
                 "shasum": ""
             },
             "require": {
@@ -151,6 +151,11 @@
                 "php-cs-fixer"
             ],
             "type": "application",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "Symfony\\CS\\": "Symfony/CS/"
@@ -171,7 +176,7 @@
                 }
             ],
             "description": "A tool to automatically fix PHP code style",
-            "time": "2015-07-27 20:56:10"
+            "time": "2015-09-09 22:37:14"
         },
         {
             "name": "guzzle/guzzle",
@@ -817,6 +822,54 @@
                 "psr-3"
             ],
             "time": "2012-12-21 11:40:51"
+        },
+        {
+            "name": "refinery29/php-cs-fixer-config",
+            "version": "0.1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/refinery29/php-cs-fixer-config.git",
+                "reference": "049e5a80c18473d5adf6a1232255bd9c0df30879"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/049e5a80c18473d5adf6a1232255bd9c0df30879",
+                "reference": "049e5a80c18473d5adf6a1232255bd9c0df30879",
+                "shasum": ""
+            },
+            "require": {
+                "fabpot/php-cs-fixer": "2.0.*@dev",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "^0.1.2",
+                "phpunit/phpunit": "^4.8.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Refinery29\\CS\\Config\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Refinery29\\CS\\Config\\Test\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andreas Möller",
+                    "email": "andreas.moller@refinery29.com"
+                }
+            ],
+            "description": "Provides a configuration for fabpot/php-cs-fixer, used within Refinery29.",
+            "support": {
+                "source": "https://github.com/refinery29/php-cs-fixer-config/tree/0.1.4"
+            },
+            "time": "2015-09-04 15:09:45"
         },
         {
             "name": "satooshi/php-coveralls",
@@ -1726,7 +1779,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "fabpot/php-cs-fixer": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

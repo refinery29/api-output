@@ -12,14 +12,14 @@ class LinkSubset implements Serializer
 
     protected $subset;
 
-    function __construct(Input $subset)
+    public function __construct(Input $subset)
     {
         $this->subset = $subset;
     }
 
     public function getOutput()
     {
-        if ($this->subset->hasLinks()){
+        if ($this->subset->hasLinks()) {
             $output = $this->processArray($this->subset->getLinks());
 
             return json_encode([$this->subset->getName() => $output], JSON_UNESCAPED_SLASHES);
