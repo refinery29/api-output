@@ -2,8 +2,10 @@
 
 namespace Refinery29\ApiOutput\Serializer\Link;
 
+use Exception;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection as Input;
 use Refinery29\ApiOutput\Serializer\HasArrayComponent;
+use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
 
 class LinkCollection implements Serializer
@@ -12,8 +14,11 @@ class LinkCollection implements Serializer
 
     protected $linkCollection;
 
-    public function __construct(Input $linkCollection)
+    public function __construct(HasSerializer $linkCollection)
     {
+        if (! $linkCollection instanceof Input){
+            throw new Exception("Incorrect Serializer passed");
+        }
         $this->linkCollection = $linkCollection;
     }
 

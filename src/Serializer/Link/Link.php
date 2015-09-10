@@ -3,12 +3,17 @@
 namespace Refinery29\ApiOutput\Serializer\Link;
 
 use Refinery29\ApiOutput\Resource\Link\Link as Input;
+use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
+use Symfony\Component\Config\Definition\Exception\Exception;
 
 class Link implements Serializer
 {
-    public function __construct(Input $link)
+    public function __construct(HasSerializer $link)
     {
+        if (! $link instanceof Input){
+            throw new Exception("Incorrect Serializer passed");
+        }
         $this->link = $link;
     }
 
