@@ -1,0 +1,33 @@
+{
+  "name": "refiner29/api-output",
+  "description": "Package for generating API output per refinery29/api-standards",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:refinery29/php-cs-fixer-config"
+    }
+  ],
+  "require-dev": {
+    "codeclimate/php-test-reporter": "^0.2.0",
+    "fabpot/php-cs-fixer": "2.0.*@dev",
+    "henrikbjorn/phpspec-code-coverage": "^1.0",
+    "phpspec/nyan-formatters": "^1.0",
+    "phpspec/phpspec": "^2.3",
+    "refinery29/php-cs-fixer-config": "^0.1.1"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kayla Daniels",
+      "email": "kayladnls@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Refinery29\\ApiOutput\\": "src"
+    }
+  },
+  "config": {
+    "bin-dir": "bin"
+  }
+}

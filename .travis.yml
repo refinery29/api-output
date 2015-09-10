@@ -1,0 +1,36 @@
+language: php
+
+sudo: false
+
+env:
+  global:
+  - secure: "3b1c49963f95f56786b1802a4daeb51d7049bf2dd4b8234899e1ed5919f6a7b4"
+
+matrix:
+  include:
+    - php: 5.5
+    - php: 5.5
+      env: COLLECT_COVERAGE=true
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.php-cs-fixer
+
+before_install:
+  - composer self-update
+  - composer validate
+  - composer config github-oauth.github.com $GITHUB_TOKEN
+
+install:
+  - composer install --prefer-dist
+
+before_script:
+  - mkdir -p "$HOME/.php-cs-fixer"
+
+script:
+  - bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff --dry-run
+  - bin/phpspec run --format=dot
+
+after_script:
+  - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" && "$COLLECT_COVERAGE" == "true" ]]; then bin/report-coverage; fi
