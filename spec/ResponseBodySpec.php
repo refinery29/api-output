@@ -67,7 +67,7 @@ class ResponseBodySpec extends ObjectBehavior
         $output->self = new \stdClass();
         $output->self->href = 'http://example.com/articles/1';
         $output->self->meta = new \stdClass();
-        $output->self->meta->jedi ="yoda";
+        $output->self->meta->jedi = 'yoda';
 
         $serializer->getOutput()->willReturn($output);
 

@@ -32,8 +32,8 @@ class LinkCollectionSpec extends ObjectBehavior
         $output = new \stdClass();
         $output->self = new \stdClass();
         $output->self->meta = new \stdClass();
-        $output->self->meta->jedi ="yoda";
-        $output->self->meta->sith ="darth vader";
+        $output->self->meta->jedi = 'yoda';
+        $output->self->meta->sith = 'darth vader';
         $output->self->href = 'http://yolo';
 
         $this->getOutput()->shouldObjectMatch($output);

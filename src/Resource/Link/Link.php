@@ -15,7 +15,7 @@ class Link
     protected $name;
 
     /**
-     * @var array $meta
+     * @var array
      */
     protected $meta = [];
 
