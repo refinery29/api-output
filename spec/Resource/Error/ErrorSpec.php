@@ -50,7 +50,7 @@ class ErrorSpec extends ObjectBehavior
 
     public function it_can_add_links()
     {
-        $link = new Link('http://yolo.com');
+        $link = Link::createFirst('http://yolo.com');
         $this->addLink($link);
         $this->getLinks()->hasLink($link)->shouldReturn(true);
     }

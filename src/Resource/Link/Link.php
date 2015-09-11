@@ -2,10 +2,7 @@
 
 namespace Refinery29\ApiOutput\Resource\Link;
 
-use Refinery29\ApiOutput\Serializer\HasSerializer;
-use Refinery29\ApiOutput\Serializer\Link\Link as Serializer;
-
-class Link implements HasSerializer
+class Link
 {
     /**
      * @var string
@@ -13,18 +10,54 @@ class Link implements HasSerializer
     protected $href;
 
     /**
+     * @var string
+     */
+    protected $name;
+
+    /**
      * @var string | null
      */
-    protected $meta;
+    protected $meta = null;
 
     /**
      * @param string      $href
-     * @param string|null $meta
+     * @param string|null $name
      */
-    public function __construct($href, $meta = null)
+    private function __construct($name, $href, $meta = null)
     {
         $this->href = $href;
+        $this->name = $name;
         $this->meta = $meta;
+    }
+
+    public static function createSelf($href, $meta = null)
+    {
+        return new self('self', $href, $meta);
+    }
+
+    public static function createRelated($href, $meta = null)
+    {
+        return new self('related', $href, $meta);
+    }
+
+    public static function createPrev($href, $meta = null)
+    {
+        return new self('prev', $href, $meta);
+    }
+
+    public static function createNext($href, $meta = null)
+    {
+        return new self('next', $href, $meta);
+    }
+
+    public static function createFirst($href, $meta = null)
+    {
+        return new self('first', $href, $meta);
+    }
+
+    public static function createLast($name, $href, $meta = null)
+    {
+        return new self('last', $href, $meta);
     }
 
     /**
@@ -36,15 +69,18 @@ class Link implements HasSerializer
     }
 
     /**
-     * @return string
+     * @return null|string
      */
     public function getMeta()
     {
         return $this->meta;
     }
 
-    public function getSerializer()
+    /**
+     * @return string
+     */
+    public function getName()
     {
-        return new Serializer($this);
+        return $this->name;
     }
 }

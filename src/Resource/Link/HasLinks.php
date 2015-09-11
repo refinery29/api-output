@@ -34,7 +34,7 @@ trait HasLinks
     private function linksMatch(Link $one, Link $two)
     {
         return ($one->getHref() == $two->getHref()
-            && $one->getMeta() == $two->getMeta());
+            && $one->getName() == $two->getName());
     }
 
     /**
@@ -51,10 +51,5 @@ trait HasLinks
         }
 
         return false;
-    }
-
-    public function hasLinks()
-    {
-        return !empty($this->links);
     }
 }

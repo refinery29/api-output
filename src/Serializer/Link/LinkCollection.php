@@ -3,37 +3,91 @@
 namespace Refinery29\ApiOutput\Serializer\Link;
 
 use Exception;
+use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection as Input;
-use Refinery29\ApiOutput\Serializer\HasArrayComponent;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
+use Refinery29\ApiOutput\TopLevelResource;
 
-class LinkCollection implements Serializer
+class LinkCollection implements Serializer, TopLevelResource
 {
-    use HasArrayComponent;
+    /**
+     * @var Input
+     */
+    protected $resource;
 
-    protected $linkCollection;
-
+    /**
+     * @param HasSerializer $linkCollection
+     *
+     * @throws Exception
+     */
     public function __construct(HasSerializer $linkCollection)
     {
-        if (! $linkCollection instanceof Input){
-            throw new Exception("Incorrect Serializer passed");
+        if (! $linkCollection instanceof Input) {
+            throw new Exception('Incorrect Serializer passed');
         }
-        $this->linkCollection = $linkCollection;
+        $this->resource = $linkCollection;
     }
 
+    /**
+     * @return \stdClass
+     */
     public function getOutput()
     {
-        if ($this->linkCollection->hasSubsets()) {
-            $output = $this->processArray($this->linkCollection->getSubsets());
+        foreach ($this->resource->getLinks() as $link) {
+            if ($link->getMeta()) {
+                return $this->buildMetaLink($link);
+            }
 
-            return json_encode(['links' => $output], JSON_UNESCAPED_SLASHES);
+            return $this->buildSimpleLink($link);
         }
+    }
 
-        if ($this->linkCollection->hasLinks()) {
-            $output = $this->processArray($this->linkCollection->getLinks());
+    /**
+     * @return string
+     */
+    public function getTopLevelName()
+    {
+        return 'links';
+    }
 
-            return json_encode(['links' => $output], JSON_UNESCAPED_SLASHES);
-        }
+    /**
+     * @param Link $link
+     *
+     * @return \stdClass
+     */
+    public function buildSimpleLink(Link $link)
+    {
+        $name = $link->getName();
+
+        $output = new \stdClass();
+        $output->$name = $link->getHref();
+
+        return $output;
+    }
+
+    /**
+     * @param Link $link
+     *
+     * @return \stdClass
+     */
+    public function buildMetaLink(Link $link)
+    {
+        $name = $link->getName();
+
+        $output = new \stdClass();
+        $output->$name = new \stdClass();
+        $output->$name->href = $link->getHref();
+        $output->$name->meta = $link->getMeta();
+
+        return $output;
+    }
+
+    /**
+     * @return string
+     */
+    public function asJson()
+    {
+        return json_encode($this->getOutput(), JSON_UNESCAPED_SLASHES);
     }
 }

@@ -5,60 +5,51 @@ namespace spec\Refinery29\ApiOutput\Serializer\Link;
 use PhpSpec\ObjectBehavior;
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
-use Refinery29\ApiOutput\Resource\Link\LinkSubset;
-use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
 
 class LinkCollectionSpec extends ObjectBehavior
 {
-    public function let(LinkCollection $input)
-    {
-        $this->beConstructedWith($input);
-    }
-
-    public function it_is_initializable()
-    {
-        $this->shouldHaveType(Serializer::class);
-    }
-
-    public function it_can_get_output_with_subsets()
+    public function it_can_get_output_with_links()
     {
         $input = new LinkCollection();
-        $subset = new LinkSubset('resources');
-        $subset->addLink(new Link('http', 'yolo'));
-
-        $input->addSubset($subset);
-        $this->beConstructedWith($input);
-
-        $output = '{"links":[{"resources":[{"href":"http","meta":"yolo"}]}]}';
-        $this->getOutput()->shouldReturn($output);
-    }
-
-    public function it_can_get_output_with_only_links()
-    {
-        $input = new LinkCollection();
-        $this->beConstructedWith($input);
-
-        $link = new Link('http://yolo', 'yolo');
-
+        $link = Link::createSelf('http://yolo');
         $input->addLink($link);
 
-        $output = '{"links":[{"href":"http://yolo","meta":"yolo"}]}';
-        $this->getOutput()->shouldReturn($output);
-    }
-
-    public function it_outputs_subsets_when_both_links_and_subsets_are_present()
-    {
-        $input = new LinkCollection();
         $this->beConstructedWith($input);
 
-        $link = new Link('http://yolo', 'yolo');
+        $this->getOutput()->shouldHavePropertyWithValue(['self', 'http://yolo']);
+    }
+
+    public function it_can_get_output_with_meta_links()
+    {
+        $input = new LinkCollection();
+        $link = Link::createSelf('http://yolo', 'meta');
         $input->addLink($link);
 
-        $subset = new LinkSubset('resources');
-        $subset->addLink(new Link('http', 'yolo'));
-        $input->addSubset($subset);
+        $this->beConstructedWith($input);
 
-        $output = '{"links":[{"resources":[{"href":"http","meta":"yolo"}]}]}';
-        $this->getOutput()->shouldReturn($output);
+        $output = new \stdClass();
+        $output->self = new \stdClass();
+        $output->self->meta = 'meta';
+        $output->self->href = 'http://yolo';
+
+        $this->getOutput()->shouldObjectMatch($output);
+    }
+
+    public function it_must_pass_link_collection()
+    {
+        $this->shouldThrow(\Exception::class)->duringInstantiation(Link::createFirst('http', 'meta'));
+    }
+
+    public function getMatchers()
+    {
+        return [
+            'havePropertyWithValue' => function ($subject, $key) {
+                return $subject->{$key[0]} == $key[1];
+            },
+            'objectMatch' => function ($subject, $key) {
+                return $subject  == $key;
+            },
+
+        ];
     }
 }

@@ -5,8 +5,9 @@ namespace Refinery29\ApiOutput\Resource\Error;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\Serializer\Error\Error as Serializer;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
+use Refinery29\ApiOutput\TopLevelResource;
 
-class Error implements HasSerializer
+class Error implements HasSerializer, TopLevelResource
 {
     /**
      * @var LinkCollection
@@ -115,5 +116,13 @@ class Error implements HasSerializer
     public function addLink($link)
     {
         $this->links->addLink($link);
+    }
+
+    /**
+     * @return string
+     */
+    public function getTopLevelName()
+    {
+        return 'errors';
     }
 }
