@@ -48,10 +48,17 @@ class ErrorSpec extends ObjectBehavior
         $this->getLinks()->shouldHaveType(LinkCollection::class);
     }
 
-    public function it_can_add_links()
+    public function it_can_add_about_links()
     {
         $link = Link::createAbout('http://yolo.com');
         $this->addAboutLink($link);
         $this->getLinks()->hasLink($link)->shouldReturn(true);
     }
+
+    public function it_cannot_add_other_links()
+    {
+        $link = Link::createNext('http://yolo.com');
+        $this->shouldThrow(\Exception::class)->duringAddAboutLink($link);
+    }
+
 }

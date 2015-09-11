@@ -52,4 +52,9 @@ trait HasLinks
 
         return false;
     }
+
+    public function hasLinks()
+    {
+        return !empty($this->links);
+    }
 }
