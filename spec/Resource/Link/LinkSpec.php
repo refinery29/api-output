@@ -7,8 +7,7 @@ use Refinery29\ApiOutput\Resource\Link\Link;
 
 class LinkSpec extends ObjectBehavior
 {
-
-    function let()
+    public function let()
     {
         $this->beConstructedThrough('createSelf', ['http://yolo.com']);
     }

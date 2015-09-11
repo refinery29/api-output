@@ -18,8 +18,8 @@ class ErrorSpec extends ObjectBehavior
         $this->beConstructedWith(new Error('title', 'code'));
 
         $object = new \stdClass();
-        $object->title = "title";
-        $object->code = "code";
+        $object->title = 'title';
+        $object->code = 'code';
 
         $this->getOutput()->shouldObjectMatch($object);
 

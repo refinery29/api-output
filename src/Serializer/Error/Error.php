@@ -24,22 +24,22 @@ class Error implements Serializer, TopLevelResource
     {
         $error = [
             'title' => $this->resource->getTitle(),
-            'code'  => $this->resource->getCode()
+            'code' => $this->resource->getCode(),
         ];
 
         if ($this->resource->getDetail()) {
             $error['detail'] = $this->resource->getDetail();
-            }
+        }
 
         if ($this->resource->getId()) {
             $error['detail'] = $this->resource->getId();
-            }
+        }
 
-        if ($this->resource->getLinks()->hasLinks()){
+        if ($this->resource->getLinks()->hasLinks()) {
             $error['links'] = $this->resource->getLinks()->getSerializer()->getOutput();
         }
 
-        return (object)$error;
+        return (object) $error;
     }
 
     /**

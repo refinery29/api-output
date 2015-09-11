@@ -112,11 +112,12 @@ class Error implements HasSerializer
 
     /**
      * @param Link $link
+     *
      * @throws \Exception
      */
     public function addAboutLink(Link $link)
     {
-        if ($link->getName() !== "about"){
+        if ($link->getName() !== 'about') {
             throw new \Exception('Error Objects only support "about" links');
         }
 

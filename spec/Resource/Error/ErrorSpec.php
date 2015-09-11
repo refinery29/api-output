@@ -60,5 +60,4 @@ class ErrorSpec extends ObjectBehavior
         $link = Link::createNext('http://yolo.com');
         $this->shouldThrow(\Exception::class)->duringAddAboutLink($link);
     }
-
 }

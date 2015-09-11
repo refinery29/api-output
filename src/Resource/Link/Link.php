@@ -31,6 +31,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createSelf($href)
@@ -40,6 +41,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createRelated($href)
@@ -49,6 +51,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createPrev($href)
@@ -58,6 +61,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createNext($href)
@@ -67,6 +71,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createFirst($href)
@@ -76,6 +81,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createLast($href)
@@ -85,6 +91,7 @@ class Link
 
     /**
      * @param $href
+     *
      * @return Link
      */
     public static function createAbout($href)
