@@ -78,7 +78,7 @@ class LinkCollection implements Serializer, TopLevelResource
         $output = new \stdClass();
         $output->$name = new \stdClass();
         $output->$name->href = $link->getHref();
-        $output->$name->meta = $link->getMeta();
+        $output->$name->meta = (object) $link->getMeta();
 
         return $output;
     }

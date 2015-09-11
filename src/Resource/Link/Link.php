@@ -15,19 +15,18 @@ class Link
     protected $name;
 
     /**
-     * @var string | null
+     * @var array $meta
      */
-    protected $meta = null;
+    protected $meta = [];
 
     /**
-     * @param string      $href
      * @param string|null $name
+     * @param string      $href
      */
-    private function __construct($name, $href, $meta = null)
+    private function __construct($name, $href)
     {
         $this->href = $href;
         $this->name = $name;
-        $this->meta = $meta;
     }
 
     public static function createSelf($href, $meta = null)
@@ -66,6 +65,15 @@ class Link
     public function getHref()
     {
         return $this->href;
+    }
+
+    /**
+     * @param string $name
+     * @param string $value
+     */
+    public function addMeta($name, $value)
+    {
+        $this->meta[$name] = $value;
     }
 
     /**
