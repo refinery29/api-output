@@ -29,34 +29,39 @@ class Link
         $this->name = $name;
     }
 
-    public static function createSelf($href, $meta = null)
+    public static function createSelf($href)
     {
-        return new self('self', $href, $meta);
+        return new self('self', $href);
     }
 
-    public static function createRelated($href, $meta = null)
+    public static function createRelated($href)
     {
-        return new self('related', $href, $meta);
+        return new self('related', $href);
     }
 
-    public static function createPrev($href, $meta = null)
+    public static function createPrev($href)
     {
-        return new self('prev', $href, $meta);
+        return new self('prev', $href);
     }
 
-    public static function createNext($href, $meta = null)
+    public static function createNext($href)
     {
-        return new self('next', $href, $meta);
+        return new self('next', $href);
     }
 
-    public static function createFirst($href, $meta = null)
+    public static function createFirst($href)
     {
-        return new self('first', $href, $meta);
+        return new self('first', $href);
     }
 
-    public static function createLast($name, $href, $meta = null)
+    public static function createLast($href)
     {
-        return new self('last', $href, $meta);
+        return new self('last', $href);
+    }
+
+    public static function createAbout($href)
+    {
+        return new self('about', $href);
     }
 
     /**

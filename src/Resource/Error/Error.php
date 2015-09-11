@@ -2,6 +2,7 @@
 
 namespace Refinery29\ApiOutput\Resource\Error;
 
+use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\Serializer\Error\Error as Serializer;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
@@ -111,10 +112,15 @@ class Error implements HasSerializer, TopLevelResource
     }
 
     /**
-     * @param string $link
+     * @param Link $link
+     * @throws \Exception
      */
-    public function addLink($link)
+    public function addAboutLink(Link $link)
     {
+        if ($link->getName() !== "about"){
+            throw new \Exception('Error Objects only support "about" links');
+        }
+
         $this->links->addLink($link);
     }
 

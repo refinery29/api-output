@@ -18,9 +18,9 @@ trait HasLinks
     }
 
     /**
-     * @param string $link
+     * @param Link $link
      */
-    public function addLink($link)
+    public function addLink(Link $link)
     {
         $this->links[] = $link;
     }
