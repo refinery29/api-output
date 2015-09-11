@@ -9,6 +9,9 @@ class LinkCollection implements HasSerializer
 {
     use HasLinks;
 
+    /**
+     * @return Serializer
+     */
     public function getSerializer()
     {
         return new Serializer($this);
