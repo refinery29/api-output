@@ -103,7 +103,7 @@ class Error implements HasSerializer
     }
 
     /**
-     * @return array
+     * @return LinkCollection
      */
     public function getLinks()
     {
