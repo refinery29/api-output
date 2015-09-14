@@ -29,6 +29,7 @@ install:
 
 before_script:
   - mkdir -p "$HOME/.php-cs-fixer"
+  - if [ "$TRAVIS_PHP_VERSION" == "7" ]; then mv -v phpspec.php7.yml phpspec.yml; fi
 
 script:
   - bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff --dry-run

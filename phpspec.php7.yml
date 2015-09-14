@@ -1,0 +1,4 @@
+suites:
+  ion:
+    namespace: Refinery29\ApiOutput
+    psr4_prefix: Refinery29\ApiOutput
