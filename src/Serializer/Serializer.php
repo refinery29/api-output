@@ -7,6 +7,4 @@ interface Serializer
     public function __construct(HasSerializer $serializer);
 
     public function getOutput();
-
-    public function asJson();
 }

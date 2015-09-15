@@ -32,7 +32,7 @@ class Error implements Serializer, TopLevelResource
         }
 
         if ($this->resource->getId()) {
-            $error['detail'] = $this->resource->getId();
+            $error['id'] = $this->resource->getId();
         }
 
         if ($this->resource->getLinks()->hasLinks()) {
@@ -40,14 +40,6 @@ class Error implements Serializer, TopLevelResource
         }
 
         return (object) $error;
-    }
-
-    /**
-     * @return string
-     */
-    public function asJson()
-    {
-        return json_encode($this->getOutput(), JSON_UNESCAPED_SLASHES);
     }
 
     /**

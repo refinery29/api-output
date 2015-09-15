@@ -44,6 +44,13 @@ class LinkCollectionSpec extends ObjectBehavior
         $this->shouldThrow(\Exception::class)->duringInstantiation(Link::createFirst('http'));
     }
 
+    public function it_can_get_top_level_name()
+    {
+        $this->beConstructedWith(new LinkCollection());
+
+        $this->getTopLevelName()->shouldReturn('links');
+    }
+
     public function getMatchers()
     {
         return [
