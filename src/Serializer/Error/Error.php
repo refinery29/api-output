@@ -45,14 +45,6 @@ class Error implements Serializer, TopLevelResource
     /**
      * @return string
      */
-    public function asJson()
-    {
-        return json_encode($this->getOutput(), JSON_UNESCAPED_SLASHES);
-    }
-
-    /**
-     * @return string
-     */
     public function getTopLevelName()
     {
         return 'errors';

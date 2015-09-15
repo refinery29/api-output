@@ -82,12 +82,4 @@ class LinkCollection implements Serializer, TopLevelResource
 
         return $output;
     }
-
-    /**
-     * @return string
-     */
-    public function asJson()
-    {
-        return json_encode($this->getOutput(), JSON_UNESCAPED_SLASHES);
-    }
 }
