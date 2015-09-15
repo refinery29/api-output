@@ -32,7 +32,7 @@ class Error implements Serializer, TopLevelResource
         }
 
         if ($this->resource->getId()) {
-            $error['detail'] = $this->resource->getId();
+            $error['id'] = $this->resource->getId();
         }
 
         if ($this->resource->getLinks()->hasLinks()) {
