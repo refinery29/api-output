@@ -30,13 +30,6 @@ class ErrorSpec extends ObjectBehavior
         $this->getOutput()->shouldObjectMatch($object);
     }
 
-    public function it_can_get_top_level_name()
-    {
-        $this->beConstructedWith(new Error('title', 'code'));
-
-        $this->getTopLevelName()->shouldReturn('errors');
-    }
-
     public function getMatchers()
     {
         return [
