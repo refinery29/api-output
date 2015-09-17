@@ -3,7 +3,6 @@
 namespace spec\Refinery29\ApiOutput\Resource;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Result;
 
 class ResultSpec extends ObjectBehavior
@@ -13,7 +12,7 @@ class ResultSpec extends ObjectBehavior
         $this->beConstructedWith(['something' => 'value', 'this' => 'that', 'muppet' => 'henson']);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(Result::class);
     }

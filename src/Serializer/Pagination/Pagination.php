@@ -21,20 +21,23 @@ class Pagination implements TopLevelResource, Serializer
 
     public function getTopLevelName()
     {
-        return "pagination";
+        return 'pagination';
     }
+
     public function getOutput()
     {
         $output = new \stdClass();
         foreach ($this->resource->getLinks() as $link) {
             $this->buildSimpleLink($output, $link);
         }
+
         return $output;
     }
 
     /**
      * @param $output
      * @param Link $link
+     *
      * @return \stdClass
      */
     public function buildSimpleLink($output, Link $link)

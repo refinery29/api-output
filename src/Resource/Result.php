@@ -1,7 +1,8 @@
-<?php namespace Refinery29\ApiOutput\Resource;
+<?php
+
+namespace Refinery29\ApiOutput\Resource;
 
 use Refinery29\ApiOutput\Serializer\HasSerializer;
-use Refinery29\ApiOutput\TopLevelResource;
 
 class Result implements HasSerializer
 {

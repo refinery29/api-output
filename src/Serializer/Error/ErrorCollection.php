@@ -1,4 +1,6 @@
-<?php namespace Refinery29\ApiOutput\Serializer\Error;
+<?php
+
+namespace Refinery29\ApiOutput\Serializer\Error;
 
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
@@ -6,7 +8,6 @@ use Refinery29\ApiOutput\TopLevelResource;
 
 class ErrorCollection implements Serializer, TopLevelResource
 {
-
     /**
      * @var \Refinery29\ApiOutput\Resource\Error\ErrorCollection
      */
@@ -14,6 +15,7 @@ class ErrorCollection implements Serializer, TopLevelResource
 
     /**
      * @param HasSerializer $serializer
+     *
      * @throws \Exception
      */
     public function __construct(HasSerializer $serializer)

@@ -3,7 +3,6 @@
 namespace spec\Refinery29\ApiOutput\Serializer\Pagination;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Pagination\Pagination as Input;
@@ -11,13 +10,12 @@ use Refinery29\ApiOutput\Serializer\Pagination\Pagination;
 
 class PaginationSpec extends ObjectBehavior
 {
-
     public function let(Input $pagination)
     {
         $this->beConstructedWith($pagination);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(Pagination::class);
     }
@@ -37,13 +35,13 @@ class PaginationSpec extends ObjectBehavior
         $this->beConstructedWith($pagination);
 
         $pag = new \stdClass();
-        $pag->first =  "http://yolo.com";
-        $pag->last = "http://yolo.com";
+        $pag->first = 'http://yolo.com';
+        $pag->last = 'http://yolo.com';
 
         $pagination->getLinks()->willReturn(
             [
                 Link::createFirst('http://yolo.com'),
-                Link::createLast('http://yolo.com')
+                Link::createLast('http://yolo.com'),
             ]);
 
         $this->getOutput()->shouldObjectMatch($pag);

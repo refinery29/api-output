@@ -1,4 +1,6 @@
-<?php namespace Refinery29\ApiOutput\Resource\Error;
+<?php
+
+namespace Refinery29\ApiOutput\Resource\Error;
 
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 

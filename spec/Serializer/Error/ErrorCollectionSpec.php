@@ -3,7 +3,6 @@
 namespace spec\Refinery29\ApiOutput\Serializer\Error;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Error\ErrorCollection;
 
@@ -14,7 +13,7 @@ class ErrorCollectionSpec extends ObjectBehavior
         $this->beConstructedWith($collection);
     }
 
-    function it_is_initializable()
+    public function it_is_initializable()
     {
         $this->shouldHaveType(\Refinery29\ApiOutput\Serializer\Error\ErrorCollection::class);
     }

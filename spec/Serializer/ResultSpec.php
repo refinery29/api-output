@@ -3,25 +3,23 @@
 namespace spec\Refinery29\ApiOutput\Serializer;
 
 use PhpSpec\ObjectBehavior;
-use Prophecy\Argument;
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Result;
 
 class ResultSpec extends ObjectBehavior
 {
-
-    function it_is_initializable(Result $result)
+    public function it_is_initializable(Result $result)
     {
         $this->beConstructedWith($result);
         $this->shouldHaveType(\Refinery29\ApiOutput\Serializer\Result::class);
     }
 
-    function it_Must_be_constructed_with_result(Error $error)
+    public function it_Must_be_constructed_with_result(Error $error)
     {
         $this->shouldThrow(\Exception::class)->during('__construct', [$error]);
     }
 
-    function it_can_get_output(Result $result)
+    public function it_can_get_output(Result $result)
     {
         $this->beConstructedWith($result);
         $result->getData()->willReturn(['something' => 'value', 'this' => 'that', 'muppet' => 'henson']);
@@ -39,7 +37,6 @@ class ResultSpec extends ObjectBehavior
         $this->beConstructedWith($result);
         $this->getTopLevelName()->shouldReturn('result');
     }
-
 
     public function getMatchers()
     {

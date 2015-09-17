@@ -1,4 +1,6 @@
-<?php namespace Refinery29\ApiOutput\Serializer;
+<?php
+
+namespace Refinery29\ApiOutput\Serializer;
 
 use Refinery29\ApiOutput\Resource\Result as Input;
 use Refinery29\ApiOutput\TopLevelResource;
@@ -9,7 +11,7 @@ class Result implements Serializer, TopLevelResource
 
     public function __construct(HasSerializer $serializer)
     {
-        if (! $serializer instanceof Input){
+        if (! $serializer instanceof Input) {
             throw new \Exception('Incorrect Resource Passed');
         }
 
@@ -23,6 +25,6 @@ class Result implements Serializer, TopLevelResource
 
     public function getTopLevelName()
     {
-        return "result";
+        return 'result';
     }
 }

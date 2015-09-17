@@ -1,4 +1,6 @@
-<?php namespace Refinery29\ApiOutput\Resource\Pagination;
+<?php
+
+namespace Refinery29\ApiOutput\Resource\Pagination;
 
 use Refinery29\ApiOutput\Resource\Link\HasLinks;
 use Refinery29\ApiOutput\Resource\Link\Link;

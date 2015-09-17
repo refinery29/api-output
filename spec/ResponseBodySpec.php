@@ -92,8 +92,8 @@ class ResponseBodySpec extends ObjectBehavior
         $serializer->getTopLevelName()->willReturn('errors');
 
         $error = new \stdClass();
-        $error->title = "something";
-        $error->code = "something";
+        $error->title = 'something';
+        $error->code = 'something';
         $output = [$error];
 
         $serializer->getOutput()->willReturn($output);
@@ -108,15 +108,14 @@ class ResponseBodySpec extends ObjectBehavior
         $this->getMembers()->shouldContain($serializer);
 
         $obj = new \stdClass();
-        $obj->yada = "yada";
-        $obj->blah = "blah";
+        $obj->yada = 'yada';
+        $obj->blah = 'blah';
 
         $serializer->getOutput()->willReturn($obj);
 
         $serializer->getTopLevelName()->willReturn('result');
 
         $this->getOutput()->shouldReturn('{"result":{"yada":"yada","blah":"blah"}}');
-
     }
 
     public function it_can_output_pagination(Pagination $serializer)
@@ -126,14 +125,13 @@ class ResponseBodySpec extends ObjectBehavior
         $this->getMembers()->shouldContain($serializer);
 
         $pag = new \stdClass();
-        $pag->first =  "http://yolo.com";
-        $pag->last = "http://yolo.com";
+        $pag->first = 'http://yolo.com';
+        $pag->last = 'http://yolo.com';
 
         $serializer->getOutput()->willReturn($pag);
 
         $serializer->getTopLevelName()->willReturn('pagination');
 
         $this->getOutput()->shouldReturn('{"pagination":{"first":"http://yolo.com","last":"http://yolo.com"}}');
-
     }
 }
