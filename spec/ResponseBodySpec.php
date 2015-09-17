@@ -9,6 +9,7 @@ use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\ResponseBody;
 use Refinery29\ApiOutput\Serializer\Error\ErrorCollection;
 use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
+use Refinery29\ApiOutput\Serializer\Pagination\Pagination;
 use Refinery29\ApiOutput\Serializer\Result;
 
 class ResponseBodySpec extends ObjectBehavior
@@ -100,7 +101,7 @@ class ResponseBodySpec extends ObjectBehavior
         $this->getOutput()->shouldReturn('{"errors":[{"title":"something","code":"something"}]}');
     }
 
-    public function it_can_output_result(Result $serializer, \Refinery29\ApiOutput\Resource\Result $result)
+    public function it_can_output_result(Result $serializer)
     {
         $this->addMember($serializer);
         $this->getMembers()->shouldBeArray();
@@ -115,6 +116,24 @@ class ResponseBodySpec extends ObjectBehavior
         $serializer->getTopLevelName()->willReturn('result');
 
         $this->getOutput()->shouldReturn('{"result":{"yada":"yada","blah":"blah"}}');
+
+    }
+
+    public function it_can_output_pagination(Pagination $serializer)
+    {
+        $this->addMember($serializer);
+        $this->getMembers()->shouldBeArray();
+        $this->getMembers()->shouldContain($serializer);
+
+        $pag = new \stdClass();
+        $pag->first =  "http://yolo.com";
+        $pag->last = "http://yolo.com";
+
+        $serializer->getOutput()->willReturn($pag);
+
+        $serializer->getTopLevelName()->willReturn('pagination');
+
+        $this->getOutput()->shouldReturn('{"pagination":{"first":"http://yolo.com","last":"http://yolo.com"}}');
 
     }
 }
