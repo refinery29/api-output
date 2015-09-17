@@ -3,10 +3,13 @@
 namespace spec\Refinery29\ApiOutput;
 
 use PhpSpec\ObjectBehavior;
+use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\ResponseBody;
+use Refinery29\ApiOutput\Serializer\Error\ErrorCollection;
 use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
+use Refinery29\ApiOutput\Serializer\Result;
 
 class ResponseBodySpec extends ObjectBehavior
 {
@@ -72,5 +75,46 @@ class ResponseBodySpec extends ObjectBehavior
         $serializer->getOutput()->willReturn($output);
 
         $this->getOutput()->shouldReturn('{"links":{"self":{"href":"http://example.com/articles/1","meta":{"jedi":"yoda"}}}}');
+    }
+
+    public function it_can_output_errors(ErrorCollection $serializer)
+    {
+        $collection = new \Refinery29\ApiOutput\Resource\Error\ErrorCollection();
+        $collection->addError(new Error('something', 'something'));
+
+        $serializer->beConstructedWith([$collection]);
+
+        $this->addMember($serializer);
+        $this->getMembers()->shouldBeArray();
+        $this->getMembers()->shouldContain($serializer);
+
+        $serializer->getTopLevelName()->willReturn('errors');
+
+        $error = new \stdClass();
+        $error->title = "something";
+        $error->code = "something";
+        $output = [$error];
+
+        $serializer->getOutput()->willReturn($output);
+
+        $this->getOutput()->shouldReturn('{"errors":[{"title":"something","code":"something"}]}');
+    }
+
+    public function it_can_output_result(Result $serializer, \Refinery29\ApiOutput\Resource\Result $result)
+    {
+        $this->addMember($serializer);
+        $this->getMembers()->shouldBeArray();
+        $this->getMembers()->shouldContain($serializer);
+
+        $obj = new \stdClass();
+        $obj->yada = "yada";
+        $obj->blah = "blah";
+
+        $serializer->getOutput()->willReturn($obj);
+
+        $serializer->getTopLevelName()->willReturn('result');
+
+        $this->getOutput()->shouldReturn('{"result":{"yada":"yada","blah":"blah"}}');
+
     }
 }
