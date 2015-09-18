@@ -34,13 +34,17 @@ class LinkCollection implements Serializer, TopLevelResource
      */
     public function getOutput()
     {
+        $output = new \stdClass();
+
         foreach ($this->resource->getLinks() as $link) {
             if ($link->getMeta()) {
-                return $this->buildMetaLink($link);
+                $this->buildMetaLink($output, $link);
+            } else {
+                $this->buildSimpleLink($output, $link);
             }
-
-            return $this->buildSimpleLink($link);
         }
+
+        return $output;
     }
 
     /**
@@ -56,11 +60,10 @@ class LinkCollection implements Serializer, TopLevelResource
      *
      * @return \stdClass
      */
-    public function buildSimpleLink(Link $link)
+    public function buildSimpleLink($output, Link $link)
     {
         $name = $link->getName();
 
-        $output = new \stdClass();
         $output->$name = $link->getHref();
 
         return $output;
@@ -71,11 +74,10 @@ class LinkCollection implements Serializer, TopLevelResource
      *
      * @return \stdClass
      */
-    public function buildMetaLink(Link $link)
+    public function buildMetaLink($output, Link $link)
     {
         $name = $link->getName();
 
-        $output = new \stdClass();
         $output->$name = new \stdClass();
         $output->$name->href = $link->getHref();
         $output->$name->meta = (object) $link->getMeta();

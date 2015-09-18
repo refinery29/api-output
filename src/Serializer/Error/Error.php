@@ -5,9 +5,8 @@ namespace Refinery29\ApiOutput\Serializer\Error;
 use Refinery29\ApiOutput\Resource\Error\Error as Input;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
-use Refinery29\ApiOutput\TopLevelResource;
 
-class Error implements Serializer, TopLevelResource
+class Error implements Serializer
 {
     protected $resource;
 
@@ -40,13 +39,5 @@ class Error implements Serializer, TopLevelResource
         }
 
         return (object) $error;
-    }
-
-    /**
-     * @return string
-     */
-    public function getTopLevelName()
-    {
-        return 'errors';
     }
 }
