@@ -14,6 +14,7 @@ class ErrorCollection implements HasSerializer
 
     /**
      * @param Error[] $errors
+     *
      * @throws \Exception
      */
     public function __construct(array $errors = [])
