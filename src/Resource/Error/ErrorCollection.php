@@ -2,12 +2,20 @@
 
 namespace Refinery29\ApiOutput\Resource\Error;
 
+use Refinery29\ApiOutput\Serializer\Error\ErrorCollection as Serializer;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 
 class ErrorCollection implements HasSerializer
 {
+    /**
+     * @var Error[]
+     */
     private $errors = [];
 
+    /**
+     * @param Error[] $errors
+     * @throws \Exception
+     */
     public function __construct(array $errors = [])
     {
         foreach ($errors as $error) {
@@ -19,18 +27,27 @@ class ErrorCollection implements HasSerializer
         $this->errors = $errors;
     }
 
+    /**
+     * @param Error $error
+     */
     public function addError(Error $error)
     {
         $this->errors[] = $error;
     }
 
+    /**
+     * @return Error[]
+     */
     public function getErrors()
     {
         return $this->errors;
     }
 
+    /**
+     * @return Serializer
+     */
     public function getSerializer()
     {
-        return new \Refinery29\ApiOutput\Serializer\Error\ErrorCollection($this);
+        return new Serializer($this);
     }
 }

@@ -27,8 +27,8 @@ abstract class ResourceFactory
     }
 
     /**
-     * @param $title
-     * @param $code
+     * @param string $title
+     * @param string $code
      *
      * @return Error
      */
