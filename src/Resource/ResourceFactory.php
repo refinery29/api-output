@@ -9,7 +9,7 @@ use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 abstract class ResourceFactory
 {
     /**
-     * @param $data
+     * @param array $data
      *
      * @return Result
      */
