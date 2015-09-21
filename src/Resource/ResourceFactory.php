@@ -1,4 +1,6 @@
-<?php namespace Refinery29\ApiOutput\Resource;
+<?php
+
+namespace Refinery29\ApiOutput\Resource;
 
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Error\ErrorCollection;
@@ -8,6 +10,7 @@ abstract class ResourceFactory
 {
     /**
      * @param $data
+     *
      * @return Result
      */
     public static function result(array $data)
@@ -26,6 +29,7 @@ abstract class ResourceFactory
     /**
      * @param $title
      * @param $code
+     *
      * @return Error
      */
     public static function error($title, $code)

@@ -8,7 +8,7 @@ class ErrorCollection implements HasSerializer
 {
     private $errors = [];
 
-    public function __construct(array $errors = null)
+    public function __construct(array $errors = [])
     {
         foreach ($errors as $error) {
             if (!$error instanceof Error) {
@@ -18,7 +18,6 @@ class ErrorCollection implements HasSerializer
 
         $this->errors = $errors;
     }
-
 
     public function addError(Error $error)
     {
