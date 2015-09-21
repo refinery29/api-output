@@ -8,6 +8,18 @@ class ErrorCollection implements HasSerializer
 {
     private $errors = [];
 
+    public function __construct(array $errors = null)
+    {
+        foreach ($errors as $error) {
+            if (!$error instanceof Error) {
+                throw new \Exception('Error Collections may only contain errors');
+            }
+        }
+
+        $this->errors = $errors;
+    }
+
+
     public function addError(Error $error)
     {
         $this->errors[] = $error;
