@@ -5,3 +5,16 @@
 [![Test Coverage](https://codeclimate.com/github/refinery29/api-output/badges/coverage.svg)](https://codeclimate.com/github/refinery29/api-output/coverage)
 
 Package for generating API output per refinery29/api-standards
+
+## Installation
+
+Run
+
+```
+$ composer require refinery29/api-output
+```
+
+## Contributing
+
+Please have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
+
