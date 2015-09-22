@@ -4,9 +4,9 @@ namespace Refinery29\ApiOutput\Serializer\Pagination;
 
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Pagination\Pagination as Input;
+use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
-use Refinery29\ApiOutput\TopLevelResource;
 
 class Pagination implements TopLevelResource, Serializer
 {

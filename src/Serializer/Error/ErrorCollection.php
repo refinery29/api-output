@@ -2,9 +2,9 @@
 
 namespace Refinery29\ApiOutput\Serializer\Error;
 
+use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 use Refinery29\ApiOutput\Serializer\Serializer;
-use Refinery29\ApiOutput\TopLevelResource;
 
 class ErrorCollection implements Serializer, TopLevelResource
 {
