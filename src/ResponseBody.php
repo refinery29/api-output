@@ -8,20 +8,17 @@ use Refinery29\ApiOutput\Serializer\Serializer;
 class ResponseBody
 {
     /**
-     * @var Serializer[]
+     * @var TopLevelResource[]
      */
     protected $members = [];
 
     /**
-     * @param Serializer $member
+     * @param TopLevelResource $member
      *
      * @throws \Exception
      */
-    public function addMember(Serializer $member)
+    public function addMember(TopLevelResource $member)
     {
-        if (! $member instanceof TopLevelResource) {
-            throw new \Exception('Members added to Response Body must be instance of ' . TopLevelResource::class);
-        }
         $this->members[] = $member;
     }
 

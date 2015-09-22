@@ -2,7 +2,9 @@
 
 namespace Refinery29\ApiOutput\Resource;
 
-interface TopLevelResource
+use Refinery29\ApiOutput\Serializer\Serializer;
+
+interface TopLevelResource extends Serializer
 {
     public function getTopLevelName();
 }
