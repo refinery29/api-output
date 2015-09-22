@@ -13,3 +13,8 @@ Run
 ```
 $ composer require refinery29/api-output
 ```
+
+## Contributing
+
+Please have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
+
