@@ -20,7 +20,7 @@ class Result implements Serializer, TopLevelResource
 
     public function getOutput()
     {
-        return (object) $this->result->getData();
+        return $this->result->getData();
     }
 
     public function getTopLevelName()
