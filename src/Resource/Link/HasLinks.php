@@ -5,12 +5,12 @@ namespace Refinery29\ApiOutput\Resource\Link;
 trait HasLinks
 {
     /**
-     * @var Link[].
+     * @var Link[]
      */
     protected $links = [];
 
     /**
-     * @return array
+     * @return Link[]
      */
     public function getLinks()
     {
