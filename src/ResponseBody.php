@@ -6,6 +6,9 @@ use Refinery29\ApiOutput\Serializer\Serializer;
 
 class ResponseBody
 {
+    /**
+     * @var \stdClass
+     */
     private $response;
 
     /**
