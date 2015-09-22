@@ -13,12 +13,13 @@ class ResponseBody
 
     /**
      * @param Serializer $member
+     *
      * @throws \Exception
      */
     public function addMember(Serializer $member)
     {
-        if (! $member instanceof TopLevelResource){
-            throw new \Exception("Members added to Response Body must be instance of " . TopLevelResource::class);
+        if (! $member instanceof TopLevelResource) {
+            throw new \Exception('Members added to Response Body must be instance of ' . TopLevelResource::class);
         }
         $this->members[] = $member;
     }
