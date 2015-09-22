@@ -11,6 +11,7 @@ use Refinery29\ApiOutput\Serializer\Error\ErrorCollection;
 use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
 use Refinery29\ApiOutput\Serializer\Pagination\Pagination;
 use Refinery29\ApiOutput\Serializer\Result;
+use Refinery29\ApiOutput\Serializer\Serializer as Generic;
 
 class ResponseBodySpec extends ObjectBehavior
 {
@@ -133,5 +134,10 @@ class ResponseBodySpec extends ObjectBehavior
         $serializer->getTopLevelName()->willReturn('pagination');
 
         $this->getOutput()->shouldReturn('{"pagination":{"first":"http://yolo.com","last":"http://yolo.com"}}');
+    }
+
+    public function it_can_only_add_top_level_members(Generic $serializer)
+    {
+        $this->shouldThrow(\Exception::class)->during('addMember', [$serializer]);
     }
 }

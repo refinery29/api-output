@@ -22,14 +22,12 @@ class ResultSpec extends ObjectBehavior
     public function it_can_get_output(Result $result)
     {
         $this->beConstructedWith($result);
-        $result->getData()->willReturn(['something' => 'value', 'this' => 'that', 'muppet' => 'henson']);
 
-        $object = new \stdClass();
-        $object->something = 'value';
-        $object->this = 'that';
-        $object->muppet = 'henson';
+        $output = ['something' => 'value', 'this' => 'that', 'muppet' => 'henson'];
 
-        $this->getOutput()->shouldObjectMatch($object);
+        $result->getData()->willReturn($output);
+
+        $this->getOutput()->shouldObjectMatch($output);
     }
 
     public function it_can_get_top_level_name(Result $result)
