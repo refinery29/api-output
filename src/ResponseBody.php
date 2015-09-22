@@ -30,9 +30,10 @@ class ResponseBody
         return $this->members;
     }
 
-    /**
+    /**mae
      * @return string JSON representation of the response.
      */
+
     public function getOutput()
     {
         $response = [];

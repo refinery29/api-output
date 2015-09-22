@@ -6,9 +6,8 @@ use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Pagination\Pagination as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
-use Refinery29\ApiOutput\Serializer\Serializer;
 
-class Pagination implements TopLevelResource, Serializer
+class Pagination implements TopLevelResource
 {
     public function __construct(HasSerializer $serializer)
     {
