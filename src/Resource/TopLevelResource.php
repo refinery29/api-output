@@ -1,6 +1,6 @@
 <?php
 
-namespace Refinery29\ApiOutput;
+namespace Refinery29\ApiOutput\Resource;
 
 interface TopLevelResource
 {
