@@ -2,6 +2,7 @@
 
 namespace Refinery29\ApiOutput;
 
+use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\Serializer;
 
 class ResponseBody
@@ -38,11 +39,11 @@ class ResponseBody
     public function getOutput()
     {
         $response = [];
-        
+
         foreach ($this->members as $member) {
             $response[$member->getTopLevelName()] = $member->getOutput();
         }
 
-        return json_encode( (object) $this->response, JSON_UNESCAPED_SLASHES);
+        return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
     }
 }
