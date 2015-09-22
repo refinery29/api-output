@@ -7,9 +7,8 @@ use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
-use Refinery29\ApiOutput\Serializer\Serializer;
 
-class LinkCollection implements Serializer, TopLevelResource
+class LinkCollection implements TopLevelResource
 {
     /**
      * @var Input

@@ -5,7 +5,7 @@ namespace Refinery29\ApiOutput\Serializer;
 use Refinery29\ApiOutput\Resource\Result as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 
-class Result implements Serializer, TopLevelResource
+class Result implements TopLevelResource
 {
     private $result;
 
@@ -20,7 +20,7 @@ class Result implements Serializer, TopLevelResource
 
     public function getOutput()
     {
-        return (object) $this->result->getData();
+        return $this->result->getData();
     }
 
     public function getTopLevelName()

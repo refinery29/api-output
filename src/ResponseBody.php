@@ -2,29 +2,22 @@
 
 namespace Refinery29\ApiOutput;
 
+use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\Serializer;
 
 class ResponseBody
 {
     /**
-     * @var \stdClass
-     */
-    private $response;
-
-    /**
-     * @var Serializer[]
+     * @var TopLevelResource[]
      */
     protected $members = [];
 
-    public function __construct()
-    {
-        $this->response = new \stdClass();
-    }
-
     /**
-     * @param Serializer $member
+     * @param TopLevelResource $member
+     *
+     * @throws \Exception
      */
-    public function addMember(Serializer $member)
+    public function addMember(TopLevelResource $member)
     {
         $this->members[] = $member;
     }
@@ -37,12 +30,18 @@ class ResponseBody
         return $this->members;
     }
 
+    /**mae
+     * @return string JSON representation of the response.
+     */
+
     public function getOutput()
     {
+        $response = [];
+
         foreach ($this->members as $member) {
-            $this->response->{$member->getTopLevelName()} = $member->getOutput();
+            $response[$member->getTopLevelName()] = $member->getOutput();
         }
 
-        return json_encode($this->response, JSON_UNESCAPED_SLASHES);
+        return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
     }
 }
