@@ -20,6 +20,7 @@ abstract class ResourceFactory
 
     /**
      * @param array $errors
+     *
      * @return ErrorCollection
      */
     public static function errorCollection(array $errors = [])
