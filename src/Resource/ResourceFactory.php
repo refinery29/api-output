@@ -19,11 +19,12 @@ abstract class ResourceFactory
     }
 
     /**
+     * @param array $errors
      * @return ErrorCollection
      */
-    public static function errorCollection()
+    public static function errorCollection(array $errors = [])
     {
-        return new ErrorCollection();
+        return new ErrorCollection($errors);
     }
 
     /**
