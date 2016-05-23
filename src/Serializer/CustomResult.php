@@ -1,10 +1,10 @@
 <?php
 
-namespace Refinery29\ApiOutput\Serializer\CustomResult;
+namespace Refinery29\ApiOutput\Serializer;
 
-use Refinery29\ApiOutput\Resource\CustomResult\CustomResult as Input;
+use Refinery29\ApiOutput\Resource\CustomResult as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
-use Refinery29\ApiOutput\Serializer\HasSerializer;
+
 
 class CustomResult implements TopLevelResource
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Refinery29\ApiOutput\Resource\CustomResult;
+namespace Refinery29\ApiOutput\Resource;
 
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 
@@ -20,6 +20,6 @@ class CustomResult implements HasSerializer
 
     public function getSerializer()
     {
-        return new \Refinery29\ApiOutput\Serializer\CustomResult\CustomResult($this);
+        return new \Refinery29\ApiOutput\Serializer\CustomResult($this);
     }
 }

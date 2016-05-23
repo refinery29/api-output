@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Refinery29\ApiOutput\Resource\CustomResult;
+namespace spec\Refinery29\ApiOutput\Resource;
 
 use PhpSpec\ObjectBehavior;
-use Refinery29\ApiOutput\Resource\CustomResult\CustomResult;
+use Refinery29\ApiOutput\Resource\CustomResult;
 
 class CustomResultSpec extends ObjectBehavior
 {

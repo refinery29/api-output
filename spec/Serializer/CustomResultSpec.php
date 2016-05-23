@@ -1,9 +1,9 @@
 <?php
 
-namespace spec\Refinery29\ApiOutput\Serializer\CustomResult;
+namespace spec\Refinery29\ApiOutput\Serializer;
 
 use PhpSpec\ObjectBehavior;
-use Refinery29\ApiOutput\Resource\CustomResult\CustomResult;
+use Refinery29\ApiOutput\Resource\CustomResult;
 use Refinery29\ApiOutput\Resource\Error\Error;
 
 class CustomResultSpec extends ObjectBehavior
@@ -11,7 +11,7 @@ class CustomResultSpec extends ObjectBehavior
     public function it_is_initializable(CustomResult $customResult)
     {
         $this->beConstructedWith($customResult);
-        $this->shouldHaveType(\Refinery29\ApiOutput\Serializer\CustomResult\CustomResult::class);
+        $this->shouldHaveType(\Refinery29\ApiOutput\Serializer\CustomResult::class);
     }
 
     public function it_Must_be_constructed_with_result(Error $error)
