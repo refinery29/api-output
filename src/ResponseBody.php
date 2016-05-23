@@ -38,6 +38,14 @@ class ResponseBody
     {
         $response = [];
 
+        if (count($this->members) == 1) {
+            $member = $this->members[0];
+            if ($member->getTopLevelName() === '') {
+                $response = $member->getOutput();
+                return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
+            }
+        }
+
         foreach ($this->members as $member) {
             $response[$member->getTopLevelName()] = $member->getOutput();
         }
@@ -45,22 +53,4 @@ class ResponseBody
         return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
     }
 
-    /**
-     * @return string JSON without a top level object
-     */
-    public function getToplessOutput()
-    {
-        $response = [];
-
-        if (count($this->members) === 1) {
-            $response = $this->members[0]->getOutput();
-            return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
-        }
-
-        foreach ($this->members as $member) {
-            $response[$member->getTopLevelName()] = $member->getOutput();
-            array_push($response, $member->getOutput());
-        }
-        return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
-    }
 }
