@@ -3,8 +3,8 @@
 namespace spec\Refinery29\ApiOutput\Serializer\CustomResult;
 
 use PhpSpec\ObjectBehavior;
-use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\CustomResult\CustomResult;
+use Refinery29\ApiOutput\Resource\Error\Error;
 
 class CustomResultSpec extends ObjectBehavior
 {

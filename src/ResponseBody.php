@@ -42,6 +42,7 @@ class ResponseBody
             $member = $this->members[0];
             if ($member->getTopLevelName() === '') {
                 $response = $member->getOutput();
+
                 return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
             }
         }
