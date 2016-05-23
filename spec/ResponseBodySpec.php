@@ -7,6 +7,7 @@ use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\ResponseBody;
+use Refinery29\ApiOutput\Serializer\CustomResult;
 use Refinery29\ApiOutput\Serializer\Error\ErrorCollection;
 use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
 use Refinery29\ApiOutput\Serializer\Pagination\Pagination;
@@ -117,6 +118,23 @@ class ResponseBodySpec extends ObjectBehavior
         $serializer->getTopLevelName()->willReturn('result');
 
         $this->getOutput()->shouldReturn('{"result":{"yada":"yada","blah":"blah"}}');
+    }
+
+    public function it_can_output_custom_result(CustomResult $serializer)
+    {
+        $this->addMember($serializer);
+        $this->getMembers()->shouldBeArray();
+        $this->getMembers()->shouldContain($serializer);
+
+        $obj = new \stdClass();
+        $obj->yada = 'yada';
+        $obj->blah = 'blah';
+
+        $serializer->getOutput()->willReturn($obj);
+
+        $serializer->getTopLevelName()->willReturn('');
+
+        $this->getOutput()->shouldReturn('{"yada":"yada","blah":"blah"}');
     }
 
     public function it_can_output_pagination(Pagination $serializer)

@@ -2,6 +2,7 @@
 
 namespace Refinery29\ApiOutput\Resource;
 
+use Refinery29\ApiOutput\Resource\CustomResult\CustomResult;
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Error\ErrorCollection;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
@@ -16,6 +17,16 @@ abstract class ResourceFactory
     public static function result(array $data)
     {
         return new Result($data);
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return CustomResult
+     */
+    public static function customResult(array $data)
+    {
+        return new CustomResult($data);
     }
 
     /**
