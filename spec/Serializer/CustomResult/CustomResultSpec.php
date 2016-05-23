@@ -19,7 +19,7 @@ class CustomResultSpec extends ObjectBehavior
         $this->shouldThrow(\Exception::class)->during('__construct', [$error]);
     }
 
-    public function it_can_get_output(Result $result)
+    public function it_can_get_output(CustomResult $result)
     {
         $this->beConstructedWith($result);
 
@@ -30,7 +30,7 @@ class CustomResultSpec extends ObjectBehavior
         $this->getOutput()->shouldObjectMatch($output);
     }
 
-    public function it_can_get_top_level_name(Result $result)
+    public function it_can_get_top_level_name(CustomResult $result)
     {
         $this->beConstructedWith($result);
         $this->getTopLevelName()->shouldReturn('');
