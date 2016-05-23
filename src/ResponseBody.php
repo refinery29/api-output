@@ -52,5 +52,4 @@ class ResponseBody
 
         return json_encode((object) $response, JSON_UNESCAPED_SLASHES);
     }
-
 }

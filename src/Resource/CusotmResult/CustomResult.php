@@ -1,10 +1,10 @@
 <?php
 
-namespace Refinery29\ApiOutput\Resource\ToplessResult;
+namespace Refinery29\ApiOutput\Resource\CustomResult;
 
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 
-class ToplessResult implements HasSerializer
+class CustomResult implements HasSerializer
 {
     private $data;
 
@@ -20,6 +20,6 @@ class ToplessResult implements HasSerializer
 
     public function getSerializer()
     {
-        return new \Refinery29\ApiOutput\Serializer\ToplessResult\ToplessResult($this);
+        return new \Refinery29\ApiOutput\Serializer\CustomResult\CustomResult($this);
     }
 }

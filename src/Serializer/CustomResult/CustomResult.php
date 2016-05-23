@@ -1,12 +1,12 @@
 <?php
 
-namespace Refinery29\ApiOutput\Serializer\ToplessResult;
+namespace Refinery29\ApiOutput\Serializer\CustomResult;
 
 use Refinery29\ApiOutput\Resource\Result as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 
-class ToplessResult implements TopLevelResource
+class CustomResult implements TopLevelResource
 {
     private $result;
 
