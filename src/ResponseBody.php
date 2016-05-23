@@ -4,7 +4,6 @@ namespace Refinery29\ApiOutput;
 
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\Serializer;
-use Refinery29\ApiOutput\Serializer\CustomResult;
 
 class ResponseBody
 {
