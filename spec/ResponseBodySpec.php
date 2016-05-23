@@ -3,16 +3,15 @@
 namespace spec\Refinery29\ApiOutput;
 
 use PhpSpec\ObjectBehavior;
-
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Link\Link;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
 use Refinery29\ApiOutput\ResponseBody;
+use Refinery29\ApiOutput\Serializer\CustomResult;
 use Refinery29\ApiOutput\Serializer\Error\ErrorCollection;
 use Refinery29\ApiOutput\Serializer\Link\LinkCollection as Serializer;
 use Refinery29\ApiOutput\Serializer\Pagination\Pagination;
 use Refinery29\ApiOutput\Serializer\Result;
-use Refinery29\ApiOutput\Serializer\CustomResult;
 use Refinery29\ApiOutput\Serializer\Serializer as Generic;
 
 class ResponseBodySpec extends ObjectBehavior
