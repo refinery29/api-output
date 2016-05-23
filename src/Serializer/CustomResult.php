@@ -5,7 +5,6 @@ namespace Refinery29\ApiOutput\Serializer;
 use Refinery29\ApiOutput\Resource\CustomResult as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 
-
 class CustomResult implements TopLevelResource
 {
     private $result;
