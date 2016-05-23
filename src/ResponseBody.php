@@ -4,6 +4,7 @@ namespace Refinery29\ApiOutput;
 
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\Serializer;
+use Refinery29\ApiOutput\Serializer\CustomResult;
 
 class ResponseBody
 {
@@ -40,7 +41,7 @@ class ResponseBody
         reset($this->members);
         $member = current($this->getMembers());
 
-        if ($member->getTopLevelName() === '') {
+        if ($member instanceof CustomResult) {
             return json_encode((object) $member->getOutput(), JSON_UNESCAPED_SLASHES);
         }
 
