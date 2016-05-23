@@ -2,7 +2,6 @@
 
 namespace Refinery29\ApiOutput\Resource;
 
-use Refinery29\ApiOutput\Resource\CustomResult\CustomResult;
 use Refinery29\ApiOutput\Resource\Error\Error;
 use Refinery29\ApiOutput\Resource\Error\ErrorCollection;
 use Refinery29\ApiOutput\Resource\Link\LinkCollection;
