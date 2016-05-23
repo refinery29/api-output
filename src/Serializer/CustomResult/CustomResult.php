@@ -2,7 +2,7 @@
 
 namespace Refinery29\ApiOutput\Serializer\CustomResult;
 
-use Refinery29\ApiOutput\Resource\Result as Input;
+use Refinery29\ApiOutput\Resource\CustomResult\CustomResult as Input;
 use Refinery29\ApiOutput\Resource\TopLevelResource;
 use Refinery29\ApiOutput\Serializer\HasSerializer;
 

@@ -33,7 +33,6 @@ class ResponseBody
     /**mae
      * @return string JSON representation of the response.
      */
-
     public function getOutput()
     {
         $response = [];
