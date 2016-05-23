@@ -119,6 +119,23 @@ class ResponseBodySpec extends ObjectBehavior
         $this->getOutput()->shouldReturn('{"result":{"yada":"yada","blah":"blah"}}');
     }
 
+    public function it_can_output_custom_result(CustomResult $serializer)
+    {
+        $this->addMember($serializer);
+        $this->getMembers()->shouldBeArray();
+        $this->getMembers()->shouldContain($serializer);
+
+        $obj = new \stdClass();
+        $obj->yada = 'yada';
+        $obj->blah = 'blah';
+
+        $serializer->getOutput()->willReturn($obj);
+
+        $serializer->getTopLevelName()->willReturn('');
+
+        $this->getOutput()->shouldReturn('{"yada":"yada","blah":"blah"}');
+    }
+
     public function it_can_output_pagination(Pagination $serializer)
     {
         $this->addMember($serializer);
