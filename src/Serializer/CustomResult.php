@@ -11,7 +11,7 @@ class CustomResult implements TopLevelResource
 
     public function __construct(HasSerializer $serializer)
     {
-        if (! $serializer instanceof Input) {
+        if (!$serializer instanceof Input) {
             throw new \Exception('Incorrect Resource Passed');
         }
 
