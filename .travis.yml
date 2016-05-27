@@ -30,7 +30,7 @@ before_script:
   - mkdir -p "$HOME/.php-cs-fixer"
 
 script:
-  - bin/php-cs-fixer fix --config-file=.php_cs --verbose --diff --dry-run
+  - bin/php-cs-fixer fix --config=.php_cs --verbose --diff --dry-run
   - bin/phpspec run --format=dot
 
 after_script:
