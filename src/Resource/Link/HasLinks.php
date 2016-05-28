@@ -33,8 +33,8 @@ trait HasLinks
      */
     private function linksMatch(Link $one, Link $two)
     {
-        return ($one->getHref() == $two->getHref()
-            && $one->getName() == $two->getName());
+        return $one->getHref() == $two->getHref()
+            && $one->getName() == $two->getName();
     }
 
     /**

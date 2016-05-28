@@ -22,7 +22,7 @@ class LinkCollection implements TopLevelResource
      */
     public function __construct(HasSerializer $linkCollection)
     {
-        if (! $linkCollection instanceof Input) {
+        if (!$linkCollection instanceof Input) {
             throw new Exception('Incorrect Serializer passed');
         }
         $this->resource = $linkCollection;
