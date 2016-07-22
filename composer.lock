@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6421eae89cccfa457fc42d86db89c15",
-    "content-hash": "2fd02374399c282a2d6cf1593b0f3227",
+    "hash": "9b0aea17f1969cb1fc014dbdad3a8c93",
+    "content-hash": "8186c8a1ee341334e74f718e80c28779",
     "packages": [],
     "packages-dev": [
         {
@@ -273,6 +273,7 @@
                 "rest",
                 "web service"
             ],
+            "abandoned": "guzzlehttp/guzzle",
             "time": "2015-03-18 18:23:50"
         },
         {
@@ -827,16 +828,16 @@
         },
         {
             "name": "refinery29/php-cs-fixer-config",
-            "version": "0.4.15",
+            "version": "0.4.19",
             "source": {
                 "type": "git",
                 "url": "https://github.com/refinery29/php-cs-fixer-config.git",
-                "reference": "9d4e6b468ca0bce35515f189ca9a1ecc44375d25"
+                "reference": "ed7b547cc57ff0b7b3b544eb2268bb85ed3ca4cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/9d4e6b468ca0bce35515f189ca9a1ecc44375d25",
-                "reference": "9d4e6b468ca0bce35515f189ca9a1ecc44375d25",
+                "url": "https://api.github.com/repos/refinery29/php-cs-fixer-config/zipball/ed7b547cc57ff0b7b3b544eb2268bb85ed3ca4cc",
+                "reference": "ed7b547cc57ff0b7b3b544eb2268bb85ed3ca4cc",
                 "shasum": ""
             },
             "require": {
@@ -844,8 +845,8 @@
                 "php": "^5.5 || ^7.0"
             },
             "require-dev": {
-                "codeclimate/php-test-reporter": "0.3.0",
-                "phpunit/phpunit": "^4.8.24"
+                "codeclimate/php-test-reporter": "0.3.2",
+                "phpunit/phpunit": "^4.8.26"
             },
             "type": "library",
             "autoload": {
@@ -864,7 +865,7 @@
                 }
             ],
             "description": "Provides a configuration for friendsofphp/php-cs-fixer, used within Refinery29.",
-            "time": "2016-05-27 16:44:27"
+            "time": "2016-07-22 07:21:39"
         },
         {
             "name": "satooshi/php-coveralls",
