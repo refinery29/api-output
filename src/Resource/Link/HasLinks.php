@@ -53,6 +53,9 @@ trait HasLinks
         return false;
     }
 
+    /**
+     * @return bool
+     */
     public function hasLinks()
     {
         return !empty($this->links);

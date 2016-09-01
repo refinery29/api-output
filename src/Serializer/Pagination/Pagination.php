@@ -9,6 +9,11 @@ use Refinery29\ApiOutput\Serializer\HasSerializer;
 
 class Pagination implements TopLevelResource
 {
+    /**
+     * @var Input|HasSerializer
+     */
+    protected $resource;
+
     public function __construct(HasSerializer $serializer)
     {
         if (!$serializer instanceof Input) {
@@ -18,11 +23,17 @@ class Pagination implements TopLevelResource
         $this->resource = $serializer;
     }
 
+    /**
+     * @return string
+     */
     public function getTopLevelName()
     {
         return 'pagination';
     }
 
+    /**
+     * @return \stdClass
+     */
     public function getOutput()
     {
         $output = new \stdClass();

@@ -7,6 +7,9 @@ use Refinery29\ApiOutput\Resource\TopLevelResource;
 
 class CustomResult implements TopLevelResource
 {
+    /**
+     * @var Input
+     */
     private $result;
 
     public function __construct(HasSerializer $serializer)
@@ -18,11 +21,17 @@ class CustomResult implements TopLevelResource
         $this->result = $serializer;
     }
 
+    /**
+     * @return array
+     */
     public function getOutput()
     {
         return $this->result->getData();
     }
 
+    /**
+     * @return string
+     */
     public function getTopLevelName()
     {
         return '';
