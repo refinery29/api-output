@@ -8,6 +8,9 @@ use Refinery29\ApiOutput\Serializer\Serializer;
 
 class Error implements Serializer
 {
+    /**
+     * @var Input|HasSerializer
+     */
     protected $resource;
 
     public function __construct(HasSerializer $error)
