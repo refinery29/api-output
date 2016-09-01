@@ -6,6 +6,9 @@ use Refinery29\ApiOutput\Serializer\HasSerializer;
 
 class CustomResult implements HasSerializer
 {
+    /**
+     * @var array
+     */
     private $data;
 
     public function __construct(array $data)
