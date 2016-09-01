@@ -23,11 +23,17 @@ class Pagination implements TopLevelResource
         $this->resource = $serializer;
     }
 
+    /**
+     * @return string
+     */
     public function getTopLevelName()
     {
         return 'pagination';
     }
 
+    /**
+     * @return \stdClass
+     */
     public function getOutput()
     {
         $output = new \stdClass();
