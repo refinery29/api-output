@@ -9,6 +9,11 @@ use Refinery29\ApiOutput\Serializer\HasSerializer;
 
 class Pagination implements TopLevelResource
 {
+    /**
+     * @var Input|HasSerializer
+     */
+    protected $resource;
+
     public function __construct(HasSerializer $serializer)
     {
         if (!$serializer instanceof Input) {
