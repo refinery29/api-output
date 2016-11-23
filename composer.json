@@ -24,5 +24,8 @@
   "prefer-stable": true,
   "config": {
     "bin-dir": "bin"
+  },
+  "require": {
+    "beberlei/assert": "^2.6.2"
   }
 }
