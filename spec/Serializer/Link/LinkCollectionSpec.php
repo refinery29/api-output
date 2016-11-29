@@ -58,7 +58,7 @@ class LinkCollectionSpec extends ObjectBehavior
                 return $subject->{$key[0]} == $key[1];
             },
             'objectMatch' => function ($subject, $key) {
-                return $subject  == $key;
+                return $subject == $key;
             },
 
         ];

@@ -6,7 +6,7 @@
     "henrikbjorn/phpspec-code-coverage": "^1.0",
     "phpspec/nyan-formatters": "^1.0",
     "phpspec/phpspec": "^2.3",
-    "refinery29/php-cs-fixer-config": "0.4.20"
+    "refinery29/php-cs-fixer-config": "0.5.5"
   },
   "license": "MIT",
   "authors": [
