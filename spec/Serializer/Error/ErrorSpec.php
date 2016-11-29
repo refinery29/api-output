@@ -34,7 +34,7 @@ class ErrorSpec extends ObjectBehavior
     {
         return [
             'objectMatch' => function ($subject, $key) {
-                return $subject  == $key;
+                return $subject == $key;
             },
 
         ];
