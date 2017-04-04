@@ -12,6 +12,7 @@ matrix:
     - php: 5.5
     - php: 5.6
       env: COLLECT_COVERAGE=true
+    - php: 7
 
 cache:
   directories:
@@ -28,6 +29,7 @@ install:
 
 before_script:
   - mkdir -p "$HOME/.php-cs-fixer"
+  - if [ "$TRAVIS_PHP_VERSION" == "7" ]; then mv -v phpspec.php7.yml phpspec.yml; fi
 
 script:
   - bin/php-cs-fixer fix --config=.php_cs --verbose --diff --dry-run
