@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * Copyright (c) 2017 Refinery29, Inc.
+ *
+ * For the full copyright and license information, please view
+ * the LICENSE file that was distributed with this source code.
+ */
+
 namespace spec\Refinery29\ApiOutput\Serializer;
 
 use PhpSpec\ObjectBehavior;
@@ -42,7 +49,6 @@ class ResultSpec extends ObjectBehavior
             'objectMatch' => function ($subject, $key) {
                 return $subject == $key;
             },
-
         ];
     }
 }
