@@ -1,4 +1,5 @@
 composer:
+	composer validate
 	composer install
 
 cs: composer
