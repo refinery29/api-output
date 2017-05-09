@@ -8,8 +8,6 @@
       "email": "kayladnls@gmail.com"
     }
   ],
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "config": {
     "bin-dir": "bin",
     "preferred-install": "dist",
@@ -20,7 +18,7 @@
   },
   "require-dev": {
     "phpspec/phpspec": "^3.3.0",
-    "refinery29/php-cs-fixer-config": "0.5.5"
+    "refinery29/php-cs-fixer-config": "0.10.0"
   },
   "autoload": {
     "psr-4": {
