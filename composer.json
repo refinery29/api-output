@@ -1,6 +1,20 @@
 {
   "name": "refinery29/api-output",
   "description": "Package for generating API output per refinery29/api-standards",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kayla Daniels",
+      "email": "kayladnls@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "bin-dir": "bin",
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
   "require": {
     "php": "^5.6 || ^7.0"
   },
@@ -11,23 +25,9 @@
     "phpspec/phpspec": "^2.3",
     "refinery29/php-cs-fixer-config": "0.5.5"
   },
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Kayla Daniels",
-      "email": "kayladnls@gmail.com"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "Refinery29\\ApiOutput\\": "src"
     }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "config": {
-    "bin-dir": "bin",
-    "preferred-install": "dist",
-    "sort-packages": true
   }
 }
