@@ -13,11 +13,6 @@ class ResponseBody
      */
     protected $members = [];
 
-    /**
-     * @param TopLevelResource $member
-     *
-     * @throws \Exception
-     */
     public function addMember(TopLevelResource $member)
     {
         $this->members[] = $member;

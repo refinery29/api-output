@@ -10,7 +10,9 @@ class ErrorSpec extends ObjectBehavior
 {
     public function it_must_pass_error()
     {
-        $this->shouldThrow(\Exception::class)->duringInstantiation(new LinkCollection());
+        $this->beConstructedWith(new LinkCollection());
+
+        $this->shouldThrow(\Exception::class)->duringInstantiation();
     }
 
     public function it_can_get_default_output()
