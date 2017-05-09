@@ -34,3 +34,6 @@ script:
 
 after_script:
   - if [[ "$TRAVIS_PULL_REQUEST" == "false" && "$TRAVIS_BRANCH" == "master" && "$COLLECT_COVERAGE" == "true" ]]; then bin/test-reporter; fi
+
+notifications:
+  email: false
