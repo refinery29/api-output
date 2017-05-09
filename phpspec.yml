@@ -1,10 +1,10 @@
 suites:
-    ion:
-        namespace: Refinery29\ApiOutput
-        psr4_prefix: Refinery29\ApiOutput
+  ion:
+    namespace: Refinery29\ApiOutput
+    psr4_prefix: Refinery29\ApiOutput
 
 extensions:
-    - PhpSpec\NyanFormattersExtension\Extension
+  - PhpSpec\NyanFormattersExtension\Extension
 
 formatter.name: nyan.cat
 
