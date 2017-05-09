@@ -1,4 +1,6 @@
-.PHONY: composer cs test
+.PHONY: composer cs it test
+
+it: cs test
 
 composer:
 	composer self-update
