@@ -3,11 +3,6 @@ suites:
     namespace: Refinery29\ApiOutput
     psr4_prefix: Refinery29\ApiOutput
 
-extensions:
-  - PhpSpec\NyanFormattersExtension\Extension
-
-formatter.name: nyan.cat
-
 code_coverage:
   format:
     - html
