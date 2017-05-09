@@ -10,6 +10,8 @@ env:
 matrix:
   include:
     - php: 5.6
+      env: WITH_CS=true
+    - php: 7.0
 
 cache:
   directories:
@@ -30,7 +32,7 @@ before_script:
   - mkdir -p "$HOME/.php-cs-fixer"
 
 script:
-  - bin/php-cs-fixer fix --config=.php_cs --verbose --diff --dry-run
+  - if [[ "$WITH_CS" == "true" ]]; then bin/php-cs-fixer fix --config=.php_cs --diff --dry-run --verbose; fi
   - bin/phpspec run --format=dot
 
 notifications:
