@@ -16,5 +16,8 @@ $ composer require refinery29/api-output
 
 ## Contributing
 
-Please have a look at [CONTRIBUTING.md](CONTRIBUTING.md).
+Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
 
+## License
+
+This package is licensed using the MIT License.
