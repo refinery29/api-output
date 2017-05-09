@@ -1,3 +1,5 @@
+.PHONY: composer cs test
+
 composer:
 	composer self-update
 	composer validate
