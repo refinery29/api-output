@@ -1,4 +1,5 @@
 composer:
+	composer self-update
 	composer validate
 	composer install
 
