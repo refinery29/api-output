@@ -23,6 +23,7 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "config": {
-    "bin-dir": "bin"
+    "bin-dir": "bin",
+    "preferred-install": "dist"
   }
 }
